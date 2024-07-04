@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Contact List</h1>
+  {% if contacts %}
+    <ul>
+      {% for contact in contacts %}
+      <li>
+        <a href="{{ contact.get_absolute_url }}">{{ contact.name }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no contacts in the database.</p>
+  {% endif %}
+
+  <a class="btn btn-primary"  role="button" href="{% url 'invoice:add_contact' %}">Add contact</a>
+{% endblock %}

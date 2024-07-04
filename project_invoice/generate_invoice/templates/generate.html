@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+{% block content %}
+    <h3>Błędy w danych</h3>
+    <ul>
+        {% if  pdf_data.total_quantity < pdf_data.expected_quantity %}
+            <li>Spodziewana ilość: <span class="font-weight-bold">{{ pdf_data.expected_quantity }}</span></li>
+            <li>Calkowita ilość: <span class="text-danger">{{ pdf_data.total_quantity }}</span></li>
+        {% endif %}
+        {% if  pdf_data.sum_of_eur < pdf_data.expected_sum_of_eur %}
+            <li>Spodziewana suma eur: <span class="font-weight-bold">{{ pdf_data.expected_sum_of_eur }}</span></li>
+            <li>Calkowita suma eur: <span class="text-danger">{{ pdf_data.sum_of_eur }}</span></li>
+        {% endif %}
+        {% if pdf_data.missing_values|length > 0 %}
+            <li>Brakujące wartosci: <span class="text-danger">{{ pdf_data.missing_values }}</span></li>
+        {% endif %}
+
+
+
+    </ul>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br/>
+        <input class="btn btn-primary" type="submit" id="submit-button" value="Submit">
+    </form>
+
+{% endblock %}

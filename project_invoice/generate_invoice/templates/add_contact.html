@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+    {% block content %}
+    <div id="add-contact">
+        <div>
+            <h2>Add Contact</h2>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-primary" type="submit" id="submit-button" value="Zapisz">
+        </div>
+    </div>
+
+    {% endblock %}

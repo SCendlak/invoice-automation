@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+    {% block content %}
+    <div class="container">
+        <ul>
+            <li><h3>Name: {{ contact.name }}</h3></li>
+            <li><h5>Street: {{contact.street}}</h5></li>
+            <li><h5>postal code: {{contact.postal_code}}</h5></li>
+            <li><h5>city: {{contact.city}}</h5></li>
+            <li><h5>voivodeship: {{contact.voivodeship}}</h5></li>
+            <li><h5>country: {{contact.country}}</h5></li>
+            <li><h5>IBAN: {{contact.iban}}</h5></li>
+            <li><h5>swift: {{contact.swift}}</h5></li>
+        </ul>
+        
+    </div>
+    {% endblock %}
